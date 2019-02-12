@@ -1,0 +1,30 @@
+{
+  "predicates": [
+    {
+      "equals": {
+        "method": "GET",
+        "path": "\/api\/questions\/123456789"
+      },
+      "headers": {
+        "Accept": "application\/json"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "is": {
+        "statusCode": 200,
+        "headers": {
+          "Cache-Control": "private",
+          "Content-Type": "application\/json; charset=utf-8",
+          "Vary": "Accept, Accept-Encoding"
+        },
+		"body": "<%- stringify(filename, 'question.ejs') %>",
+        "_mode": "text"
+      },
+      "_behaviors": {
+        "wait": 400
+      }
+    }
+  ]
+}

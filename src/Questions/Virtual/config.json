@@ -1,0 +1,121 @@
+{
+    "imposters": [
+      {
+        "protocol": "http",
+        "port": 8698,
+        "mutualAuth": false,
+        "name": "questions",
+        "stubs": [
+          {
+            "predicates": [
+              {
+                "equals": {
+                  "method": "GET",
+                  "path": "/api/questions",
+                  "query": {
+                    "tagged": "asp.net"
+                  }
+                },
+                "headers": {
+                  "Accept": "application/json"
+                }
+              }
+            ],
+            "responses": [
+              {
+                "is": {
+                  "statusCode": 200,
+                  "headers": {
+                    "Cache-Control": "private",
+                    "Content-Type": "application/json; charset=utf-8",
+                    "Vary": "Accept, Accept-Encoding"
+                  },
+                  "body": "{\r\n    \"items\": [\r\n    \t{\r\n    \t\t\"id\": \"123456789\",\r\n    \t\t\"isAnswered\": false,\r\n    \t\t\"viewCount\": 101,\r\n    \t\t\"answerCount\": 0,\r\n    \t\t\"score\": 0,\r\n    \t\t\"lastActivityDate\": 1549102642,\r\n    \t\t\"lastEditDate\": 1549102642,\r\n    \t\t\"userId\": \"654321\",\r\n    \t\t\"title\": \"Dynamically assign value to a Property\",\r\n    \t\t\"tags\": [\r\n    \t\t\t\"asp.net\",\r\n    \t\t\t\"c#\",\r\n    \t\t\t\"web\"\r\n\t\t\t]\r\n    \t},\r\n    \t{\r\n    \t\t\"id\": \"123456790\",\r\n    \t\t\"isAnswered\": true,\r\n    \t\t\"viewCount\": 240,\r\n    \t\t\"answerCount\": 2,\r\n    \t\t\"score\": 0,\r\n    \t\t\"lastActivityDate\": 1549102642,\r\n    \t\t\"lastEditDate\": 1549102642,\r\n    \t\t\"userId\": \"654322\",\r\n    \t\t\"title\": \"Not able to get QueryString in next page after redirecting to another page using Modal\",\r\n    \t\t\"tags\": [\r\n    \t\t\t\"asp.net\",\r\n    \t\t\t\"c#\",\r\n    \t\t\t\"web\",\r\n    \t\t\t\"popup\"\r\n\t\t\t]\r\n    \t},\r\n\t\t{\r\n    \t\t\"id\": \"123456791\",\r\n    \t\t\"isAnswered\": true,\r\n    \t\t\"viewCount\": 1540,\r\n    \t\t\"answerCount\": 22,\r\n    \t\t\"score\": 0,\r\n    \t\t\"lastActivityDate\": 1549102642,\r\n    \t\t\"lastEditDate\": 1549102642,\r\n    \t\t\"userId\": \"654323\",\r\n    \t\t\"title\": \"How to open pop-up window in ASP.NET web application?\",\r\n    \t\t\"tags\": [\r\n    \t\t\t\"asp.net\",\r\n    \t\t\t\"c#\",\r\n    \t\t\t\"web\",\r\n    \t\t\t\"popup\"\r\n\t\t\t]\r\n    \t},\r\n\t\t{\r\n    \t\t\"id\": \"123456792\",\r\n    \t\t\"isAnswered\": true,\r\n    \t\t\"viewCount\": 530,\r\n    \t\t\"answerCount\": 4,\r\n    \t\t\"score\": 0,\r\n    \t\t\"lastActivityDate\": 1549102642,\r\n    \t\t\"lastEditDate\": 1549102642,\r\n    \t\t\"userId\": \"654324\",\r\n    \t\t\"title\": \"Identity server 4 and api application\",\r\n    \t\t\"tags\": [\r\n    \t\t\t\"asp.net\",\r\n    \t\t\t\"c#\",\r\n    \t\t\t\"web\"\r\n\t\t\t]\r\n    \t},\r\n\t\t{\r\n    \t\t\"id\": \"123456793\",\r\n    \t\t\"isAnswered\": false,\r\n    \t\t\"viewCount\": 530,\r\n    \t\t\"answerCount\": 0,\r\n    \t\t\"score\": 0,\r\n    \t\t\"lastActivityDate\": 1549102642,\r\n    \t\t\"lastEditDate\": 1549102642,\r\n    \t\t\"userId\": \"654325\",\r\n    \t\t\"title\": \"How to show RSS as pop-up?\",\r\n    \t\t\"tags\": [\r\n    \t\t\t\"asp.net\",\r\n    \t\t\t\"c#\",\r\n    \t\t\t\"web\",\r\n    \t\t\t\"popup\"\r\n\t\t\t]\r\n    \t}\r\n\t],\r\n    \"hasMore\": true\r\n}",
+                  "_mode": "text"
+                },
+                "_behaviors": {
+                  "wait": 500
+                }
+              }
+            ]
+          },
+          {
+            "predicates": [
+              {
+                "and": [
+                  {
+                    "equals": {
+                      "method": "GET",
+                      "path": "/api/questions",
+                      "query": {
+                        "tagged": ""
+                      }
+                    },
+                    "headers": {
+                      "Accept": "application/json"
+                    }
+                  },
+                  {
+                    "equals": {
+                      "method": "GET",
+                      "path": "/api/questions",
+                      "query": {
+                        "inTitle": ""
+                      }
+                    },
+                    "headers": {
+                      "Accept": "application/json"
+                    }
+                  }
+                ]
+              }
+            ],
+            "responses": [
+              {
+                "is": {
+                  "statusCode": 400,
+                  "headers": {
+                    "Cache-Control": "private",
+                    "Content-Type": "application/text; charset=utf-8",
+                    "Vary": "Accept, Accept-Encoding"
+                  },
+                  "body": "Tagged or InTitle must contain a value",
+                  "_mode": "text"
+                }
+              }
+            ]
+          },
+          {
+            "predicates": [
+              {
+                "equals": {
+                  "method": "GET",
+                  "path": "/api/questions/123456789"
+                },
+                "headers": {
+                  "Accept": "application/json"
+                }
+              }
+            ],
+            "responses": [
+              {
+                "is": {
+                  "statusCode": 200,
+                  "headers": {
+                    "Cache-Control": "private",
+                    "Content-Type": "application/json; charset=utf-8",
+                    "Vary": "Accept, Accept-Encoding"
+                  },
+                  "body": "{\r\n    \"id\": \"123456789\",\r\n    \"isAnswered\": false,\r\n    \"viewCount\": 101,\r\n    \"answerCount\": 0,\r\n    \"score\": 0,\r\n    \"lastActivityDate\": 1549102642,\r\n    \"lastEditDate\": 1549102642,\r\n    \"userId\": \"654321\",\r\n    \"title\": \"Dynamically assign value to a Property\",\r\n    \"description\": \"I'm using a GridView in ASP.NET web application and want to open something like a \\\"new form\\\" (like in Windows Forms application) which will contain the selected GridView row data. I don't have issues selecting the row and the data, I just want to know how to open a new pop-up window, or secondary page or something like that, and how to pass the information to newly opened pop-up.\",\r\n    \"tags\": [\r\n        \"asp.net\",\r\n        \"c#\",\r\n        \"web\"\r\n    ]\r\n}",
+                  "_mode": "text"
+                },
+                "_behaviors": {
+                  "wait": 400
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+}

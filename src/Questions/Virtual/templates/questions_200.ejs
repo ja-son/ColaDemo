@@ -1,0 +1,33 @@
+{
+  "predicates": [
+    {
+      "equals": {
+        "method": "GET",
+        "path": "\/api\/questions",
+        "query": {
+          "tagged": "asp.net"
+        }
+      },
+      "headers": {
+        "Accept": "application\/json"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "is": {
+        "statusCode": 200,
+        "headers": {
+          "Cache-Control": "private",
+          "Content-Type": "application\/json; charset=utf-8",
+          "Vary": "Accept, Accept-Encoding"
+        },
+        "body": "<%- stringify(filename, 'questions_list.ejs') %>",
+        "_mode": "text"
+      },
+      "_behaviors": {
+        "wait": 500
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "predicates": [
+    {
+      "and": [
+        {
+          "equals": {
+            "method": "GET",
+            "path": "\/api\/questions",
+            "query": {
+              "tagged": ""
+            }
+          },
+          "headers": {
+            "Accept": "application\/json"
+          }
+        },
+        {
+          "equals": {
+            "method": "GET",
+            "path": "\/api\/questions",
+            "query": {
+              "inTitle": ""
+            }
+          },
+          "headers": {
+            "Accept": "application\/json"
+          }
+        }
+      ]
+    }
+  ],
+  "responses": [
+    {
+      "is": {
+        "statusCode": 400,
+        "headers": {
+          "Cache-Control": "private",
+          "Content-Type": "application\/text; charset=utf-8",
+          "Vary": "Accept, Accept-Encoding"
+        },
+        "body": "Tagged or InTitle must contain a value",
+        "_mode": "text"
+      }
+    }
+  ]
+}

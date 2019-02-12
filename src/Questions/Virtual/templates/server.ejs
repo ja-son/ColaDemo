@@ -1,0 +1,14 @@
+{
+  "imposters": [
+    {
+      "port": 8698,
+      "protocol": "http",
+      "name": "questions",
+      "stubs": [
+		<% include questions_200.ejs %>,
+		<% include questions_400.ejs %>,
+		<% include question_200.ejs %>
+      ]
+    }
+  ]
+}
