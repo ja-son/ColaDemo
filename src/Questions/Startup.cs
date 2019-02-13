@@ -35,10 +35,10 @@ namespace Questions
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             // needed when using a reverse-proxy or API gateway
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
-                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-            });
+            //app.UseForwardedHeaders(new ForwardedHeadersOptions
+            //{
+            //    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            //});
 
             if (env.IsDevelopment())
             {

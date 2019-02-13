@@ -7,7 +7,7 @@ namespace Questions.Models.Types
 {
     public class QuestionSummary
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public bool IsAnswered { get; set; }
         public long ViewCount { get; set; }
         public int AnswerCount { get; set; }

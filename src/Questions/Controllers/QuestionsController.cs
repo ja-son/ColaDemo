@@ -22,7 +22,7 @@ namespace Questions.Controllers
 
         // GET api/questions
         [HttpGet]
-        public ActionResult<QuestionsResponse> Get(QuestionsRequest req)
+        public ActionResult<QuestionsResponse> Get([FromQuery] QuestionsRequest req)
         {
             var questions = dataService.Search(req).Select(x => new QuestionSummary
             {
@@ -46,11 +46,11 @@ namespace Questions.Controllers
         }
 
         // GET api/questions/5
-        [HttpGet("{id}")]
-        public ActionResult<Question> Get(int id)
-        {
-            return new Question();
-        }
+        //[HttpGet("{id}")]
+        //public ActionResult<Question> Get(int id)
+        //{
+        //    return new Question();
+        //}
 
         // POST api/questions
         [HttpPost]
